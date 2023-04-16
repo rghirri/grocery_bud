@@ -1,0 +1,63 @@
+//  CRUD in javascript this example is used for ecommerce basket (same idea)
+// messages displayed when action is complete create read(from list displayed)
+// update(edit) delete(id) delete(all)
+
+const input = document.querySelector('#grocery');
+const form = document.querySelector('.grocery-form');
+const btnSub = document.querySelector('.submit-btn');
+const message = document.querySelector('.alert');
+
+const groceryContainer = document.querySelector('.grocery-container');
+const itemTitle = document.querySelector('.title');
+
+//console.log(input.value);
+
+form.addEventListener('submit', function (e) {
+  e.preventDefault();
+  let inputVal = input.value;
+  //   console.log('hello');
+  //   console.log(input.value);
+  if (!inputVal) {
+    console.log('empty value');
+    let errorTest = 'value is empty';
+    errors(errorTest);
+  } else {
+    console.log(inputVal);
+    itemTitle.innerText = inputVal;
+    groceryContainer.classList.add('show-container');
+    let successTest = 'Item added';
+    successMessage(successTest);
+  }
+});
+
+//  error functions
+function errors(error) {
+  message.innerText = error;
+  message.classList.add('alert-danger');
+  let classAlert = 'alert-danger';
+  setInterval(removeMessage(classAlert), 3000);
+}
+//  success functions
+function successMessage(successMessage) {
+  message.innerText = messageAlert;
+  message.classList.add('alert-success');
+  let classAlert = 'alert-success';
+  setInterval(removeMessage(classAlert), 3000);
+}
+
+function removeMessage(classAlert) {
+  message.innerText = '';
+  message.classList.remove(classAlert);
+}
+
+// ****** SELECT ITEMS **********
+
+// edit option
+
+// ****** EVENT LISTENERS **********
+
+// ****** FUNCTIONS **********
+
+// ****** LOCAL STORAGE **********
+
+// ****** SETUP ITEMS **********
